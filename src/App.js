@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { Artists } from './Artists';
+import { Albums } from './Albums';
+import { Tracks } from './Tracks';
 
 function App() {
+
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchArtists());
+  // }, [dispatch]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/artists" element={<Artists />} />
+        <Route path="/artist/:artist/albums" element={<Albums />} />
+        <Route path="/artist/:artist/album/:album/tracks/" element={<Tracks />} />
+      </Routes>
     </div>
   );
 }
